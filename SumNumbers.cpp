@@ -34,3 +34,32 @@ int main() {
 	cout << sum + num;
 	return 0;
 }
+
+
+//Prithivi Solution 
+
+#include<iostream>
+using namespace std;
+int main()
+{
+    int in,s=0,x;
+    bool flag=true;
+    while((x=getchar())!=10)
+    {
+        if(x==32) continue;
+        if( flag  && x-'0'==5)
+        {
+            in=5;
+            while((x=getchar())-'0'!=8)
+            {
+                if(x==32) continue;
+                in=in*10+x-'0';
+            }
+            in=in*10+x-'0';
+            flag=false;
+        }
+        else {s+=x-'0';}
+    }
+    cout<<s+in;
+    return 0;
+}

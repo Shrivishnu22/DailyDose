@@ -1,3 +1,38 @@
+/*
+Tower Of Hanoi 
+
+Example 1:
+
+Input:
+N = 2
+Output:
+move disk 1 from rod 1 to rod 2
+move disk 2 from rod 1 to rod 3
+move disk 1 from rod 2 to rod 3
+3
+Explanation: For N=2 , steps will be
+as follows in the example and total
+3 steps will be taken.
+Example 2:
+
+Input:
+N = 3
+Output:
+move disk 1 from rod 1 to rod 3
+move disk 2 from rod 1 to rod 2
+move disk 1 from rod 3 to rod 2
+move disk 3 from rod 1 to rod 3
+move disk 1 from rod 2 to rod 1
+move disk 2 from rod 2 to rod 3
+move disk 1 from rod 1 to rod 3
+7
+Explanation: For N=3 , steps will be
+as follows in the example and total
+7 steps will be taken.
+*/
+
+
+
 // { Driver Code Starts
 #include <bits/stdc++.h>
 

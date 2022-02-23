@@ -34,6 +34,21 @@ Constraints:
 1 <= columnTitle.length <= 7
 columnTitle consists only of uppercase English letters.
 columnTitle is in the range ["A", "FXSHRXW"].
+
+
+------------------Explanation------------------
+1. There are 26 letters in our alphabet and we start counting from 1, not zero.
+   So 'Z' is 26.
+2. The rest of the combinations start from a base 26
+AA --> 26*1+ 1 = 27 (A == 1)
+AB --> 26*1+ 2 = 28 (B == 2)
+AC -->26*1 + 3 = 29 (C == 3)
+
+
+"B" = 2
+"BC" = (2)26 + 3
+"BCM" = (2(26) + 3)26 + 13
+
 */
 
 #include<stdio.h>

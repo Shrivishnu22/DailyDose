@@ -86,3 +86,23 @@ tSum = 100+98+97+99 = 394
 In both examples, d (100) is the extra letter, which is equivalent to (tSum - sSum).
 
 */
+
+//Optimised Solution
+
+class Solution {
+public:
+	char findTheDifference(string s, string t) {
+		char v = 0;
+		for (char c : s) v ^= c;
+		for (char c : t) v ^= c;
+		return v;
+	}
+};
+
+/*
+If we XOR one charecter twice it becomes zero . ( A^A==0) .
+We took this idea. In the problem, we see one charecter added at any position after suffling our main string.
+
+So, we can add two string (s,t). then iterate the whole string and find out the XOR of the element. The XOR of the whole string(s+t) is our answer. cause same elements returns 0 (A^A==0) . So, the element which appears once,that Remains in our XOR sum. Just return it.
+*/
+

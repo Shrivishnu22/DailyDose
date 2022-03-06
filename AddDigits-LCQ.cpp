@@ -4,7 +4,6 @@ Add Digits
 Given an integer num, repeatedly add all its digits until the result has only one digit, and return it.
 
 
-
 Example 1:
 
 Input: num = 38
@@ -26,23 +25,21 @@ Constraints:
 0 <= num <= 231 - 1
 */
 
-#include<stdio.h>
-#include<bits/stdc++.h>
-#include <algorithm>
-using namespace std;
-
-int main() {
-	int n, sum = 0, rem = 0, temp = 0;
-	cin >> n;
-	while (n > 9) {
-		temp = n;
-		sum = 0;
-		while (temp != 0) {
-			rem = temp % 10;
-			sum += rem;
-			temp /= 10;
+class Solution {
+public:
+	int addDigits(int num) {
+		int n = num, sum = 0, rem = 0, temp = 0;
+		while (n > 9) {
+			temp = n;
+			sum = 0;
+			while (temp != 0) {
+				rem = temp % 10;
+				sum += rem;
+				temp /= 10;
+			}
+			n = sum;
 		}
-		n = sum;
+		if (n >= 0 && n <= 9)  return n;
+		else return sum;
 	}
-	cout << sum;
-}
+};

@@ -47,8 +47,7 @@ public:
         vector<string>v;
         string temp,res;
         for(int i=0;i<s.size();i++){
-            int ascii = s[i]-'0';
-            if(ascii==-16){
+            if(s[i]==' '){
                 v.push_back(temp);
                 temp="";
             }else{

@@ -29,28 +29,63 @@ Each element in the array appears twice except for one element which appears onl
 
 */
 
-#include<stdio.h>
-#include<bits/stdc++.h>
-using namespace std;
+// Using Map function
+// Time Complexity - O(n)
+// Space Complexity - O(n)
 
-int main() {
-	vector <int> v;
-	unordered_map <int, int> m;
-	int n, element, result;
-	cin >> n;
-	for (int i = 0; i < n; i++) {
-		cin >> element;
-		v.push_back(element);
-	}
-	for (int j = 0; j < n; j++) {
-		m[v[j]]++;
-	}
-	for (int k = 0; k < n; k++) {
-		if (m[v[k]] == 1) {
-			result = v[k];
-			break;
-		}
-	}
-	cout << result;
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+        unordered_map <int,int> m;
+        int result;
+        for(int i=0;i<nums.size();i++){
+            m[nums[i]]++;
+        }
+        for(int j=0;j<nums.size();j++){
+            if(m[nums[j]]==1){
+                result=nums[j];
+                break;
+            }
+        }
+        return result;
+    }
+};
 
-}
+// Using Array Manipulation
+// Time Complexity - O(n)
+// Space Complexity - O(1)
+
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+        if(nums.size()<2)
+            return nums[0];
+        sort(nums.begin(), nums.end());
+	    int res;
+	    for (int i = 0; i < nums.size(); i = i + 2) {
+		    if (nums[i] != nums[i + 1]) {
+			    res = nums[i];
+			    break;
+		    }
+	    }
+        return res;
+    }
+};
+
+// Using XOR Operator
+// Time Complexity - O(n)
+// Space Complexity - O(1)
+
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+        int res=nums[0];
+        for(int i=1;i<nums.size();i++)
+            res^=nums[i];
+        return res;
+    }
+};
+// Follow up
+// In XOR operation
+// a ^ a = 0
+// a ^ 0 = a

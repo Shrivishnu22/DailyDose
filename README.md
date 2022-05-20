@@ -10,3 +10,4 @@ My daily challenge programmes are stored in this repository. The following are s
 # HWI - HackWithInfy Questions
 # TAQ - Talentio Asked Questions
 # GFGQ - GeekforGeeks Questions
+# SPQ - SixPhrase Question

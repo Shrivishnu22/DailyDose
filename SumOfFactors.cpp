@@ -10,6 +10,12 @@ I/p: 3
      1 2 4
      1
 O/p: 11
+Explanation -> factors(1) -> 1     -> 1
+	       factors(2) -> 1,2   -> 3
+	       factors(4) -> 1,2,4 -> 7
+	       			     ----
+				      11
+
      
 */
 
@@ -32,7 +38,7 @@ int helper(vector<int>a, int level, int s) {
 		}
 	}
 	lev--;
-	return helper(inn, lev, sum)*1;
+	return helper(inn, lev, sum);
 
 }
 int main()

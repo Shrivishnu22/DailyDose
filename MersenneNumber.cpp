@@ -31,25 +31,25 @@ Sample Output:
 #include<bits/stdc++.h>
 using namespace std;
 bool check(int n) {
-int res=0;
-n++;
-while(n>0){
-if(n&1) res++;
-n=n>>1;
+	int res = 0;
+	n++;
+	while (n > 0) {
+		if (n & 1) res++;
+		n = n >> 1;
+	}
+	if (res == 1) return true;
+	else  return false;
 }
-if(res==1 return true;
-else  return false;
-}
-int main(){
-int n,sum=0,element;
-cin>>n;
-vector<int>arr;
-for(int i=0;i<n;i++){
-cin>>element;
-arr.push_back(element);
-}
-for(int i=0;i<n;i++){
-if(check(arr[i])) sum+=arr[i];
-}
-cout<<sum<<endl;
+int main() {
+	int n, sum = 0, element;
+	cin >> n;
+	vector<int>arr;
+	for (int i = 0; i < n; i++) {
+		cin >> element;
+		arr.push_back(element);
+	}
+	for (int i = 0; i < n; i++) {
+		if (check(arr[i])) sum += arr[i];
+	}
+	cout << sum << endl;
 }

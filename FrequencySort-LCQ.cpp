@@ -1,60 +1,58 @@
 /*
-Sort Array by Increasing Frequency
+Sort Characters By Frequency
 
-Given an array of integers nums, sort the array in increasing order based on the frequency of the values. If multiple values have the same frequency, sort them in decreasing order.
+Given a string s, sort it in decreasing order based on the frequency of the characters. The frequency of a character is the number of times it appears in the string.
 
-Return the sorted array.
+Return the sorted string. If there are multiple answers, return any of them.
 
- 
+
 
 Example 1:
 
-Input: nums = [1,1,2,2,2,3]
-Output: [3,1,1,2,2,2]
-Explanation: '3' has a frequency of 1, '1' has a frequency of 2, and '2' has a frequency of 3.
+Input: s = "tree"
+Output: "eert"
+Explanation: 'e' appears twice while 'r' and 't' both appear once.
+So 'e' must appear before both 'r' and 't'. Therefore "eetr" is also a valid answer.
 
 Example 2:
 
-Input: nums = [2,3,1,3,2]
-Output: [1,3,3,2,2]
-Explanation: '2' and '3' both have a frequency of 2, so they are sorted in decreasing order.
+Input: s = "cccaaa"
+Output: "aaaccc"
+Explanation: Both 'c' and 'a' appear three times, so both "cccaaa" and "aaaccc" are valid answers.
+Note that "cacaca" is incorrect, as the same characters must be together.
 
 Example 3:
 
-Input: nums = [-1,1,-6,4,5,-6,1,4,1]
-Output: [5,-1,4,4,-6,-6,1,1,1]
- 
+Input: s = "Aabb"
+Output: "bbAa"
+Explanation: "bbaA" is also a valid answer, but "Aabb" is incorrect.
+Note that 'A' and 'a' are treated as two different characters.
+
 
 Constraints:
 
-1 <= nums.length <= 100
--100 <= nums[i] <= 100
+1 <= s.length <= 5 * 105
+s consists of uppercase and lowercase English letters and digits.
 */
 
 class Solution {
 public:
-    static bool cmp(pair<int,int>&a,pair<int,int>&b){
-        return (a.second==b.second)?a.first>b.first:a.second<b.second;
-    }
-    vector<int> frequencySort(vector<int>& nums) {
-        map<int,int>mp;
-        if(nums.size()==1){
-            return nums;
-        }
-        for(int i=0;i<nums.size();i++){
-            mp[nums[i]]++;
-        }
-        vector<pair<int,int>>res;
-        for(auto it:mp){
-            res.push_back(it);
-        }
-        sort(res.begin(),res.end(),cmp);
-        vector<int>ans;
-        for(auto it:res){
-            for(int i=0;i<it.second;i++){
-                ans.push_back(it.first);
-            }
-        }
-        return ans;
-    }
+	static bool cmp(pair<char, int>&a, pair<char, int>&b) {
+		return a.second > b.second;
+	}
+	string frequencySort(string s) {
+		map<char, int>mp;
+		for (char ch : s)  mp[ch]++;
+		vector<pair<char, int>>res;
+		for (auto it : mp) res.push_back(it);
+		sort(res.begin(), res.end(), cmp);
+		string out = "";
+		for (auto it : res) {
+			int tmp = it.second;
+			while (tmp--) {
+				out += it.first;
+			}
+		}
+		return out;
+	}
 };

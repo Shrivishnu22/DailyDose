@@ -12,3 +12,4 @@ My daily challenge programmes are stored in this repository 🎉.The following a
 <p><b>GFGQ - GeekforGeeks Questions</b></p>
 <p><b>SPQ - SixPhrase Question</b></p>
 <p><b>ZAQ - Zoho Asked Question</b></p>
+<p><b>NAQ - NQT (TCS) Asked Question</b></p>

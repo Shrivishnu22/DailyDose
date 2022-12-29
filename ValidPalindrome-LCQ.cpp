@@ -1,55 +1,55 @@
 /*
-Input: s = "A man, a plan, a canal: Panama"
+Valid Palindrome II
+
+Given a string s, return true if the s can be palindrome after deleting at most one character from it.
+
+
+
+Example 1:
+
+Input: s = "aba"
 Output: true
-Explanation: "amanaplanacanalpanama" is a palindrome.
-  
-  
-Input: s = "race a car"
+
+Example 2:
+
+Input: s = "abca"
+Output: true
+Explanation: You could delete the character 'c'.
+
+Example 3:
+
+Input: s = "abc"
 Output: false
-Explanation: "raceacar" is not a palindrome.
 
-  
-Input: s = " "
-Output: true
-Explanation: s is an empty string "" after removing non-alphanumeric characters.
-Since an empty string reads the same forward and backward, it is a palindrome.
 
+Constraints:
+
+1 <= s.length <= 105
+s consists of lowercase English letters.
 */
 
 class Solution {
 public:
-    bool validChar(char a){
-        if((a>= 'a'&&a<='z') || (a>='A'&& a<='Z') || (a>='0'&&a<='9') )
-            return true;
-        return false;
-    }
-    char lowerChar(char a){
-        if((a>='a' && a<='z')||(a>='0'&&a<='9'))
-            return a;
-        int temp = a - 'A'+'a';
-        return temp;
-    }
-    bool isPalindrome(string s) {
-        int strlen = s.length();
-        string newstr;
-        for(int i = 0;i<strlen;i++){
-            if(validChar(s[i])){
-                newstr.push_back(s[i]);
-            }
-        }
-        for (int i = 0; i < newstr.length(); i++) {
-		    newstr[i] = lowerChar(newstr[i]);
-    	}
-        int length = newstr.length()-1;
-        bool flag=true;
-        int i=0;
-        while(i<length){
-            if(newstr[i]!=newstr[length])
-                flag=false;
-            i++;
-            length--;
-        }
-        if(flag) return true;
-        else return false;
-    }
+	bool validPalindrome(string s) {
+		int i = 0, j = s.size() - 1;
+		while (i <= j) {
+			if (s[i] == s[j]) {
+				i++;
+				j--;
+			}
+			else    return isPalindrome(s, i + 1, j) || isPalindrome(s, i, j - 1);
+		}
+		return true;
+	}
+	bool isPalindrome(string s, int i, int j) {
+		while (i <= j) {
+			if (s[i] == s[j]) {
+				i++; j--;
+			}
+			else {
+				return false;
+			}
+		}
+		return true;
+	}
 };
